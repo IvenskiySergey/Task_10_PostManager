@@ -2,8 +2,6 @@ package ru.netology.statistic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class PostManagerTest {
 
@@ -29,7 +27,59 @@ public class PostManagerTest {
     Movie movie20 = new Movie(120, "Кофе и сигареты", "Трагикомедия");
 
     @Test
-    public void myTest() {
+    public void Movies5Test() {
+        PostManager post = new PostManager();
+        post.addMovie(movie1);
+        post.addMovie(movie2);
+        post.addMovie(movie3);
+        post.addMovie(movie4);
+        post.addMovie(movie5);
+
+        Movie[] actual = post.findAll();
+        Movie[] expected = {movie1, movie2, movie3, movie4, movie5};
+
+        Movie[] actual1 = post.findLast();
+        Movie[] expected1 = {movie5, movie4, movie3, movie2, movie1};
+
+        Movie[] actual2 = post.findLast(7);
+        Movie[] expected2 = {movie5, movie4, movie3, movie2, movie1};
+
+        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertArrayEquals(expected1, actual1);
+        Assertions.assertArrayEquals(expected2, actual2);
+
+    }
+
+    @Test
+    public void Movies10Test() {
+        PostManager post = new PostManager();
+        post.addMovie(movie1);
+        post.addMovie(movie2);
+        post.addMovie(movie3);
+        post.addMovie(movie4);
+        post.addMovie(movie5);
+        post.addMovie(movie6);
+        post.addMovie(movie7);
+        post.addMovie(movie8);
+        post.addMovie(movie9);
+        post.addMovie(movie10);
+
+        Movie[] actual = post.findAll();
+        Movie[] expected = {movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10};
+
+        Movie[] actual1 = post.findLast();
+        Movie[] expected1 = {movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
+
+        Movie[] actual2 = post.findLast(10);
+        Movie[] expected2 = {movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
+
+        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertArrayEquals(expected1, actual1);
+        Assertions.assertArrayEquals(expected2, actual2);
+    }
+
+    @Test
+    public void Movies20Test() {
         PostManager post = new PostManager();
         post.addMovie(movie1);
         post.addMovie(movie2);
