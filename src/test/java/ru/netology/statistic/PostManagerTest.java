@@ -28,7 +28,7 @@ public class PostManagerTest {
 
     @Test
     public void Movies5Test() {
-        PostManager post = new PostManager();
+        PostManager post = new PostManager(7);
         post.addMovie(movie1);
         post.addMovie(movie2);
         post.addMovie(movie3);
@@ -41,13 +41,8 @@ public class PostManagerTest {
         Movie[] actual1 = post.findLast();
         Movie[] expected1 = {movie5, movie4, movie3, movie2, movie1};
 
-        Movie[] actual2 = post.findLast(7);
-        Movie[] expected2 = {movie5, movie4, movie3, movie2, movie1};
-
         Assertions.assertArrayEquals(expected, actual);
         Assertions.assertArrayEquals(expected1, actual1);
-        Assertions.assertArrayEquals(expected2, actual2);
-
     }
 
     @Test
@@ -70,17 +65,13 @@ public class PostManagerTest {
         Movie[] actual1 = post.findLast();
         Movie[] expected1 = {movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
 
-        Movie[] actual2 = post.findLast(10);
-        Movie[] expected2 = {movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
-
         Assertions.assertArrayEquals(expected, actual);
         Assertions.assertArrayEquals(expected1, actual1);
-        Assertions.assertArrayEquals(expected2, actual2);
     }
 
     @Test
     public void Movies20Test() {
-        PostManager post = new PostManager();
+        PostManager post = new PostManager(10);
         post.addMovie(movie1);
         post.addMovie(movie2);
         post.addMovie(movie3);
@@ -108,12 +99,8 @@ public class PostManagerTest {
         Movie[] actual1 = post.findLast();
         Movie[] expected1 = {movie20, movie19, movie18, movie17, movie16, movie15, movie14, movie13, movie12, movie11};
 
-        Movie[] actual2 = post.findLast(5);
-        Movie[] expected2 = {movie20, movie19, movie18, movie17, movie16};
-
         Assertions.assertArrayEquals(expected, actual);
         Assertions.assertArrayEquals(expected1, actual1);
-        Assertions.assertArrayEquals(expected2, actual2);
     }
 
 }

@@ -1,7 +1,15 @@
 package ru.netology.statistic;
 
 public class PostManager {
+    private int resultLength = 10;
     private Movie[] post = new Movie[0];
+
+    public PostManager() {
+    }
+
+    public PostManager(int amount) {
+        resultLength = amount;
+    }
 
     public void addMovie(Movie movie) {
         Movie[] postNew = new Movie[post.length + 1];
@@ -17,29 +25,13 @@ public class PostManager {
     }
 
     public Movie[] findLast() {
-        int resultLength;
-        if (post.length > 10) {
-            resultLength = 10;
-        } else {
+        if (post.length < resultLength) {
             resultLength = post.length;
         }
         Movie[] postNew = new Movie[resultLength];
         for (int i = 0; i < resultLength; i++) {
-            postNew[i] = post[post.length - i - 1];
-        }
-        return postNew;
-    }
-
-    public Movie[] findLast(int amount) {
-        int resultLength;
-        if (post.length > amount) {
-            resultLength = amount;
-        } else {
-            resultLength = post.length;
-        }
-        Movie[] postNew = new Movie[resultLength];
-        for (int i = 0; i < resultLength; i++) {
-            postNew[i] = post[post.length - i - 1];
+            int lokalLenght = post.length - i - 1;
+            postNew[i] = post[lokalLenght];
         }
         return postNew;
     }
